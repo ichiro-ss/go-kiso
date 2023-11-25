@@ -1,6 +1,8 @@
 package handler
 
-import "net/http"
+import (
+	"net/http"
+)
 
 type DoPanicHandler struct{}
 
@@ -9,5 +11,6 @@ func NewDoPanicHandler() *DoPanicHandler {
 }
 
 func (h *DoPanicHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	// fmt.Println("panic ServeHTTP")
 	panic("panic!")
 }
