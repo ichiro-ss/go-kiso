@@ -27,7 +27,7 @@ func PutOsNameOnContext(h http.Handler) http.Handler {
 
 		r = r.Clone(ctx)
 
-		// val, ok := r.Context().Value(k).(string)
+		// val, ok = r.Context().Value(k).(string)
 		// fmt.Println("--after")
 		// if ok {
 		// 	fmt.Println(val)

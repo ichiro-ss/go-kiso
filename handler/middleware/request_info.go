@@ -27,7 +27,6 @@ func RequestInfo(h http.Handler) http.Handler {
 			Latency:   latency,
 			Path:      r.URL.Path,
 		}
-		h = PutOsNameOnContext(h)
 		val, ok := r.Context().Value(k).(string)
 		if ok {
 			requestLog.OS = val
