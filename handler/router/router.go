@@ -25,5 +25,7 @@ func NewRouter(todoDB *sql.DB) *http.ServeMux {
 	mux.Handle("/os-name", middleware.PutOsNameOnContext(middleware.Recovery(handler.NewDoPanicHandler())))
 	mux.Handle("/info", middleware.PutOsNameOnContext(middleware.RequestInfo(middleware.Recovery(handler.NewDoPanicHandler()))))
 	mux.Handle("/need-auth", middleware.BasicAuth(middleware.Recovery(handler.NewDoPanicHandler())))
+	mux.Handle("/wait5", handler.NewWait5SecHandler())
+
 	return mux
 }
