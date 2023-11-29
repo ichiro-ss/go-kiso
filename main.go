@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"errors"
 	"log"
 	"net/http"
 	"os"
@@ -76,7 +77,7 @@ func realMain() error {
 	// TODO: サーバーをlistenする
 	err = srv.ListenAndServe()
 	wg.Wait()
-	if err != nil {
+	if !errors.Is(err, http.ErrServerClosed) {
 		return err
 	}
 
